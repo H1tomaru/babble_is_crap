@@ -8,7 +8,7 @@ after_initialize do
 
 	Discourse::Application.routes.append do
 			get '/ChatBroAuth' => 'chatbro#gogochat'
-			get '/chat_history(/:page)' => 'chatbro#historywohoo'
+			get '/chat_history/(:page)' => 'chatbro#historywohoo'
 	end
 
 	class ::ChatbroController < ::ApplicationController
