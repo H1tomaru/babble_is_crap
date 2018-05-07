@@ -8,6 +8,7 @@ after_initialize do
 
 	Discourse::Application.routes.append do
 			get '/ChatBroAuth' => 'chatbro#gogochat'
+			get '/chat_history' => 'chatbro#historywohoo'
 	end
 
 	class ::ChatbroController < ::ApplicationController
@@ -35,6 +36,10 @@ after_initialize do
 				)
 				render json: { params: params }
 			end
+		end
+		
+		def historywohoo
+			render json: { HiMom: "!!!" }
 		end
 
 	end
