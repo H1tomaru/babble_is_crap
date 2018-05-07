@@ -2,6 +2,8 @@
 # version: 9.9.9
 # authors: MrBug
 
+require 'digest/md5'
+
 after_initialize do
 
 	Discourse::Application.routes.append do
@@ -11,16 +13,25 @@ after_initialize do
 	class ::ChatbroController < ::ApplicationController
 
 		def gogochat
-			params = {
-				encodedChatId: '322jN',
-				siteDomain: 'union3.ru',
-				siteUserExternalId: "2",
-				siteUserFullName: "MrBug",
-				siteUserAvatarUrl: "https://union3.ru/user_avatar/union3.ru/mrbug/120/16_1.png",
-				siteUserProfileUrl: "/u/mrbug",
-				signature: "72f6835de8000c3e7692b1b694ec26e2"
-			}
-			render json: { params: params }
+			if current_user
+				params = {
+					encodedChatId: '322jN',
+					siteDomain: 'union3.ru',
+					siteUserExternalId: current_user[:id],
+					siteUserFullName: current_user[:username],
+					siteUserAvatarUrl: current_user[:avatar_template].sub!('{size}', '120'),
+					siteUserProfileUrl: "/u/"+current_user[:username]
+				}
+				params[:signature] = Digest::MD5.hexdigest(
+					params[:siteDomain] +
+					params[:siteUserExternalId] +
+					params[:siteUserFullName] +
+					params[:siteUserAvatarUrl] +
+					params[:siteUserProfileUrl] +
+					'291c5e1b-c0a3-49ec-a38c-c180a54fe4a2'
+				)
+				render json: { params: params }
+			end
 		end
 
 	end
