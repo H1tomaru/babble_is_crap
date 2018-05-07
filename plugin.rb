@@ -23,11 +23,11 @@ after_initialize do
 					siteUserProfileUrl: "/u/"+current_user.username
 				}
 				params[:signature] = Digest::MD5.hexdigest(
-					params.siteDomain +
-					params.siteUserExternalId +
-					params.siteUserFullName +
-					params.siteUserAvatarUrl +
-					params.siteUserProfileUrl +
+					params[:siteDomain] +
+					params[:siteUserExternalId] +
+					params[:siteUserFullName] +
+					params[:siteUserAvatarUrl] +
+					params[:siteUserProfileUrl] +
 					'291c5e1b-c0a3-49ec-a38c-c180a54fe4a2'
 				)
 				render json: { params: params, current_user: current_user }
