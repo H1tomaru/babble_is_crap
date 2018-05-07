@@ -5,7 +5,7 @@
 after_initialize do
 
 	Discourse::Application.routes.append do
-			get '/chatbroauth' => 'chatbro#gogochat'
+			get '/ChatBroAuth' => 'chatbro#gogochat'
 	end
 
 	class ::ChatbroController < ::ApplicationController
