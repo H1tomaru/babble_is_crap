@@ -17,10 +17,10 @@ after_initialize do
 				params = {
 					encodedChatId: '322jN',
 					siteDomain: 'union3.ru',
-					siteUserExternalId: current_user.id,
-					siteUserFullName: current_user.username,
+					siteUserExternalId: current_user[:id],
+					siteUserFullName: current_user[:username],
 					siteUserAvatarUrl: current_user.avatar_template.sub!('{size}', '120'),
-					siteUserProfileUrl: "/u/"+current_user.username
+					siteUserProfileUrl: "/u/"+current_user[:username]
 				}
 				params[:signature] = Digest::MD5.hexdigest(
 					params[:siteDomain] +
