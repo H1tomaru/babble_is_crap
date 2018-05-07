@@ -11,7 +11,16 @@ after_initialize do
 	class ::ChatbroController < ::ApplicationController
 
 		def gogochat
-			render json: { testing: true }
+			params = {
+				encodedChatId: '322jN',
+				siteDomain: 'union3.ru',
+				siteUserExternalId: "2",
+				siteUserFullName: "MrBug",
+				siteUserAvatarUrl: "https://union3.ru/user_avatar/union3.ru/mrbug/120/16_1.png",
+				siteUserProfileUrl: "/u/mrbug",
+				signature: "72f6835de8000c3e7692b1b694ec26e2"
+			}
+			render json: { params: params }
 		end
 
 	end
