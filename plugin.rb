@@ -24,7 +24,7 @@ after_initialize do
 				}
 				params[:signature] = Digest::MD5.hexdigest(
 					params[:siteDomain] +
-					params[:siteUserExternalId] +
+					params[:siteUserExternalId].to_s +
 					params[:siteUserFullName] +
 					params[:siteUserAvatarUrl] +
 					params[:siteUserProfileUrl] +
