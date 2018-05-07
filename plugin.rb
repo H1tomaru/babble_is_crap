@@ -22,7 +22,9 @@ after_initialize do
 					siteUserExternalId: current_user[:id],
 					siteUserFullName: current_user[:username],
 					siteUserAvatarUrl: "https://union3.ru" + current_user.avatar_template.sub!('{size}', '120'),
-					siteUserProfileUrl: "/u/"+current_user[:username]
+					siteUserProfileUrl: "/u/"+current_user[:username],
+					containerDivId: 'chatbroHistory',
+					useStandardHistoryWidgetSettings: true
 				}
 				(params[:permissions] = [ 'delete', 'ban']; permiss = params[:permissions].join('')) if current_user[:username] == 'H1tomaru'
 				params[:signature] = Digest::MD5.hexdigest(
