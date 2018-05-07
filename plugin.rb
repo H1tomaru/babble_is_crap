@@ -30,7 +30,7 @@ after_initialize do
 					params[:siteUserProfileUrl] +
 					'291c5e1b-c0a3-49ec-a38c-c180a54fe4a2'
 				)
-				render json: { params: params, current_user: current_user }
+				render json: { params: params }
 			end
 		end
 
