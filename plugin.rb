@@ -32,7 +32,7 @@ after_initialize do
 					params[:siteUserAvatarUrl] +
 					params[:siteUserProfileUrl] +
 					permiss +
-					'291c5e1b-c0a3-49ec-a38c-c180a54fe4a2'
+					'7e052320-d19b-43d7-bcf5-cb02d79e4a1f'
 				)
 				render json: { params: params }
 			end
