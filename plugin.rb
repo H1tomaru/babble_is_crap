@@ -17,7 +17,7 @@ after_initialize do
 			if current_user
 				permiss = ''
 				params = {
-					encodedChatId: '322jN',
+					encodedChatId: '82YTb',
 					siteDomain: 'union3.ru',
 					siteUserExternalId: current_user[:id],
 					siteUserFullName: current_user[:username],
