@@ -28,7 +28,7 @@ after_initialize do
 				(params[:permissions] = [ 'delete']; permiss = params[:permissions].join('')) if ['D13SELBOY', 'Bodwaizer'].include?(current_user[:username])
 
 				#antibotbaby!!!
-				params[:allowSendMessages] = false if Time.now - current_user[:created_at] < 90000
+				#params[:allowSendMessages] = false if Time.now - current_user[:created_at] < 90000
 
 				#will do later ;)
 				params[:signature] = Digest::MD5.hexdigest(
