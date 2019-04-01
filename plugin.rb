@@ -26,6 +26,11 @@ after_initialize do
 				}
 				(params[:permissions] = [ 'delete', 'ban']; permiss = params[:permissions].join('')) if ['H1tomaru'].include?(current_user[:username])
 				(params[:permissions] = [ 'delete']; permiss = params[:permissions].join('')) if ['D13SELBOY', 'Bodwaizer'].include?(current_user[:username])
+
+				#antibotbaby!!!
+				params[:allowSendMessages] = false if Time.now - current_user[:created_at] < 90000
+
+				#will do later ;)
 				params[:signature] = Digest::MD5.hexdigest(
 					params[:siteDomain] +
 					params[:siteUserExternalId].to_s +
