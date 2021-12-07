@@ -18,10 +18,10 @@ after_initialize do
 				permiss = ''
 				params = {
 					encodedChatId: '82YTb',
-					siteDomain: 'union3.ru',
+					siteDomain: 'union3.vg',
 					siteUserExternalId: current_user[:id],
 					siteUserFullName: current_user[:username],
-					siteUserAvatarUrl: "https://union3.ru" + current_user.avatar_template.sub('{size}', '120'),
+					siteUserAvatarUrl: "https://union3.vg" + current_user.avatar_template.sub('{size}', '120'),
 					siteUserProfileUrl: "/u/"+current_user[:username],
 				}
 				(params[:permissions] = [ 'delete', 'ban']; permiss = params[:permissions].join('')) if ['H1tomaru'].include?(current_user[:username])
